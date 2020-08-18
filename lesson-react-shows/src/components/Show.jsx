@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import withDaysFromPremiere from '../HOC/withDaysFromPremiere';
 
-export default class Show extends Component {
+class Show extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
         language: PropTypes.string.isRequired,
@@ -23,7 +24,10 @@ export default class Show extends Component {
                 </Link>
                 <p>{this.props.language}</p>
                 <p>{this.props.premiered}</p>
+                <p>Days from premiere: {this.props.daysFromPremiere}</p>
             </li>
         )
     }
 }
+
+export default withDaysFromPremiere(Show);
